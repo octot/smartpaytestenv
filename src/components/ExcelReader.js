@@ -27,13 +27,13 @@ const ExcelReader = () => {
   const [fileName2, setFileName2] = useState("");
   // 2022-01-08
   // new Date(year, monthIndex, day, hours, minutes, seconds)
-  const [fromDate, setFromDate] = useState(new Date(2025, 10, 1, 10, 0, 0));
-  const [toDate, setToDate] = useState(new Date(2025, 11, 1, 10, 0, 0));
-  const [payroll, setPayroll] = useState(new Date(2025, 11, 1, 10, 0, 0));
-  console.log("fromDate  "+fromDate);
-  //   const [fromDate, setFromDate] = useState("");
-  // const [toDate, setToDate] = useState("");
-  // const [payroll, setPayroll] = useState("");
+  // const [fromDate, setFromDate] = useState(new Date(2025, 10, 1, 10, 0, 0));
+  // const [toDate, setToDate] = useState(new Date(2025, 11, 1, 10, 0, 0));
+  // const [payroll, setPayroll] = useState(new Date(2025, 11, 1, 10, 0, 0));
+  // console.log("fromDate  "+fromDate);
+    const [fromDate, setFromDate] = useState("");
+  const [toDate, setToDate] = useState("");
+  const [payroll, setPayroll] = useState("");
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [grandparentChecked, setGrandparentChecked] = useState(true);
