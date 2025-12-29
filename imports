@@ -1,0 +1,18 @@
+# Install Material UI and its components
+npm install @mui/material @emotion/react @emotion/styled
+
+# Install react-dropzone
+npm install react-dropzone
+
+# Install xlsx
+npm install xlsx
+
+# Install the Roboto font source
+npm install @fontsource/roboto
+
+# If you're also using Material UI v4 (for older components), you can install:
+npm install @mui/material @emotion/react @emotion/styled
+
+
+backend
+npm install express body-parser twilio cors 

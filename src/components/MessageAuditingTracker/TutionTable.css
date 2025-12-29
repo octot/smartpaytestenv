@@ -1,0 +1,202 @@
+/* ====== Layout ====== */
+.tution-container {
+    padding: 20px;
+    font-family: "Inter", "Segoe UI", sans-serif;
+    background: #f9fafb;
+
+    display: flex;
+    /* 🔥 REQUIRED */
+    flex-direction: column;
+    /* 🔥 REQUIRED */
+    height: 100%;
+    /* 🔥 REQUIRED */
+}
+
+
+/* ====== Search Box ====== */
+.search-input {
+    width: 220px;
+    /* optional – remove if you already control width */
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background-color: #fff;
+}
+
+.search-input::placeholder {
+    color: #9ca3af;
+}
+
+.search-input:hover {
+    border-color: #b3b3b3;
+}
+
+.search-input:focus {
+    border-color: #1d6f42;
+    /* matches Excel green */
+    box-shadow: 0 0 0 2px rgba(29, 111, 66, 0.15);
+}
+
+
+.search-box {
+    width: 300px;
+    padding: 10px 12px;
+    border: 1px solid #d0d5dd;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    margin-bottom: 16px;
+}
+
+.search-box:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* ====== Table ====== */
+.table-wrapper {
+    min-height: 0;
+    flex: 1;
+    max-height: 400px;
+    /* 👈 adjust this */
+    /* overflow-x: auto; */
+    overflow-y: auto;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.tution-table {
+    width: max-content;
+    min-width: 100%;
+    border-collapse: collapse;
+    /* font-size: 14px; */
+}
+
+.tution-table th,
+.tution-table td {
+    white-space: nowrap;
+    padding: 12px 14px;
+    /* prevents column breaking */
+
+}
+
+/* ====== Table Header ====== */
+.tution-table th {
+    background: #f1f5f9;
+    color: #374151;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+}
+
+.tution-table th:hover {
+    background: #e5e7eb;
+}
+
+.tution-table th:active {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Sorting arrows */
+.sort-indicator {
+    margin-left: 6px;
+    font-size: 12px;
+    color: #2563eb;
+}
+
+/* ====== Table Rows ====== */
+.tution-table tr:hover {
+    background: #f9fafb;
+}
+
+.tution-table td {
+    color: #4b5563;
+}
+
+
+.tution-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: #f1f5f9;
+    /* MUST re-define background */
+}
+
+
+
+/* ====== Pagination ====== */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.pagination button {
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    background: #ffffff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.pagination button:hover {
+    background: #e5e7eb;
+}
+
+.pagination button.active {
+    background: #2563eb;
+    color: #ffffff;
+    border-color: #2563eb;
+}
+
+.pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ====== Empty State ====== */
+.no-data {
+    text-align: center;
+    padding: 20px;
+    color: #6b7280;
+}
+
+
+/*====== Excel ============*/
+.excel-btn-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 12px;
+    /* spacing from table */
+}
+
+.excel-btn {
+    background-color: #1d6f42;
+    /* Excel green */
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.excel-btn:hover {
+    background-color: #155c35;
+}
+
+.excel-btn:active {
+    transform: scale(0.97);
+}

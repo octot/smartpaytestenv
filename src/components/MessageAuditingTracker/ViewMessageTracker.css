@@ -1,0 +1,86 @@
+/* Button */
+.tracker-btn {
+    background-color: #2563eb;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.tracker-btn:hover {
+    background-color: #1d4ed8;
+}
+
+/* Overlay with blur */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Modal box */
+.modal-content {
+    background: #fff;
+    width: 100%;
+    max-width: 1350px;
+    max-height: 85vh;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 85vh;
+    /* 🔥 fixed height */
+    max-height: 85vh;
+    /* 🔥 IMPORTANT */
+
+}
+
+.modal-table-wrapper {
+    flex: 1;
+    /* takes remaining modal height */
+    min-height: 0;
+    /* 🔥 REQUIRED for vertical scroll */
+    display: flex;
+    /* 🔥 enables child flex */
+    flex-direction: column;
+}
+
+
+
+
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #555;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+.table-scroll-wrapper {
+    width: 100%;
+    height: calc(85vh - 200px);
+    /* adjust if needed */
+
+    overflow-x: auto;
+    /* ✅ horizontal scroll here */
+    overflow-y: auto;
+}

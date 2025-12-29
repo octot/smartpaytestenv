@@ -1,0 +1,212 @@
+/* WhatsAppSender.css */
+.whatsapp-sender-container {
+  padding: 20px;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.whatsapp-sender-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-sender-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: rotate(45deg);
+  transition: all 0.5s;
+  opacity: 0;
+}
+
+.whatsapp-sender-container:hover::before {
+  animation: shine 0.5s ease-in-out;
+  opacity: 1;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+.whatsapp-grid-container {
+  gap: 16px !important;
+  position: relative;
+  z-index: 1;
+}
+
+.whatsapp-status-item {
+  width: 100%;
+}
+
+.whatsapp-status-text {
+  color: white !important;
+  font-weight: 500 !important;
+  font-size: 1.1rem !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  margin: 0 !important;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.whatsapp-button-item {
+  width: 100%;
+}
+
+.whatsapp-send-button {
+  background: white !important;
+  color: #25d366 !important;
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  padding: 12px 32px !important;
+  border-radius: 50px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  min-width: 150px !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+  border: 2px solid transparent !important;
+}
+
+.whatsapp-send-button:hover {
+  background: #f8f9fa !important;
+  color: #128c7e !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3) !important;
+  border-color: white !important;
+}
+
+.whatsapp-send-button:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2) !important;
+}
+
+.whatsapp-send-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(37, 211, 102, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.whatsapp-send-button:hover::before {
+  left: 100%;
+}
+
+/* Icon styling if you want to add WhatsApp icon */
+.whatsapp-icon {
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+/* Loading state */
+.whatsapp-send-button.loading {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.whatsapp-send-button.loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  margin: auto;
+  border: 2px solid #25d366;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Success state */
+.whatsapp-send-button.success {
+  background: #27ae60 !important;
+  color: white !important;
+}
+
+.whatsapp-send-button.success::after {
+  content: '✓';
+  position: absolute;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Error state */
+.whatsapp-send-button.error {
+  background: #e74c3c !important;
+  color: white !important;
+}
+
+.whatsapp-send-button.error::after {
+  content: '✗';
+  position: absolute;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .whatsapp-sender-container {
+    padding: 15px;
+    border-radius: 12px;
+  }
+  
+  .whatsapp-status-text {
+    font-size: 1rem !important;
+    padding: 6px 12px;
+  }
+  
+  .whatsapp-send-button {
+    font-size: 0.9rem !important;
+    padding: 10px 24px !important;
+    min-width: 120px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .whatsapp-sender-container {
+    padding: 12px;
+    border-radius: 10px;
+  }
+  
+  .whatsapp-status-text {
+    font-size: 0.9rem !important;
+    padding: 5px 10px;
+  }
+  
+  .whatsapp-send-button {
+    font-size: 0.85rem !important;
+    padding: 8px 20px !important;
+    min-width: 100px !important;
+    letter-spacing: 0.5px !important;
+  }
+}

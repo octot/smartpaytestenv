@@ -1,0 +1,19 @@
+server:
+  port:  ${PORT:8080}
+
+
+spring:
+  data:
+    mongodb:
+      uri:  ${MONGO_URI}
+
+twilio:
+  account-sid: ${TWILIO_ACCOUNT_SID}
+  auth-token: ${TWILIO_AUTH_TOKEN}
+  from-number: ${TWILIO_FROM_NUMBER}
+  to-number: ${TWILIO_TO_NUMBER}
+
+app:
+  cors:
+    allowed-origins: ${CORS_ALLOWED_ORIGINS}
+
