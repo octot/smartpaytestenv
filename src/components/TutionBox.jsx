@@ -17,13 +17,19 @@ const TutionBox = ({ tutionData, fromDate, toDate, index }) => {
     const totalFees = tutionData.finalAmountToParent;
     const totalDurationOfSessionTaken = tutionData.totalDurationOfSessionTaken;
     const toNewDate = calculateDueDate(toDate);
+    const formatedFromDate=formatDate(formatDateToDDMMYYYY(fromDate));
+    const formatedToDate=formatDate(formatDateToDDMMYYYY(toDate));
+    console.log("formatedFromDate",formatedFromDate)
+    console.log("formatedToDate",formatedToDate)
+
+    console.log("TutionBoxfromDate",fromDate)
     return (
         <div key={index} className="tution-box">
             <div className="company-header">
                 <h3 className="company-name">SMARTPOINT E-PAY</h3>
                 <p className="company-subtitle">Class hour updates</p>
                 <p className="date-range">
-                    ({formatDate(formatDateToDDMMYYYY(fromDate))} - {formatDate(formatDateToDDMMYYYY(toDate))})
+                    ({formatedFromDate} - {formatedToDate})
                 </p>
             </div>
             <div className="tutor-info">
@@ -86,14 +92,8 @@ const TutionBox = ({ tutionData, fromDate, toDate, index }) => {
                 </div>
             </div>
             <div className="whatsapp-section">
-                <WhatsAppSender tutionData={tutionData} fromDate={fromDate} toDate={toDate} />
+                <WhatsAppSender tutionData={tutionData} formatedFromDate={formatedFromDate} formatedToDate={formatedToDate} />
             </div>
-            <div className="send-messages-tracker">
-                    
-            </div>
-
-
-
 
         </div>
     );

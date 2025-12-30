@@ -4,6 +4,8 @@ import TutionBox from './TutionBox';
 import './TutionDetailsWrapper.css';
 import ViewMessageTracker from "./MessageAuditingTracker/ViewMessageTracker"
 const TutionDetailsWrapper = ({ combinedAndSortedData, fromDate, toDate }) => {
+
+    console.log("TutionDetailsWrapper ",fromDate)
     const totalTutors = combinedAndSortedData.length;
     const totalSessions = combinedAndSortedData.reduce((acc, item) => {
         const tutorKey = Object.keys(item)[0];
@@ -63,11 +65,12 @@ const TutionDetailsWrapper = ({ combinedAndSortedData, fromDate, toDate }) => {
                                 const tutionData = item[tutorKey];
                                 return (
                                     <TutionBox
-                                        key={index}
-                                        index={index}
                                         tutionData={tutionData}
                                         fromDate={fromDate}
                                         toDate={toDate}
+                                        key={index}
+                                        index={index}
+                                    
                                     />
                                 );
                             })

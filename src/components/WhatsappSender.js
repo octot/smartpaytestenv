@@ -4,8 +4,10 @@ import { URI, baseURI } from "./Constants";
 import './WhatsappSender.css'
 import axios from 'axios'
 import { formatDateToDDMMYYYY, calculateDueDate } from "../utils/HelperFunctions"
-const WhatsAppSender = (tutionData, fromDate, toDate) => {
-  const classesAttended = tutionData?.tutionData?.classesAttended;
+const WhatsAppSender = ({ tutionData,
+  formatedFromDate: fromDate,
+  formatedToDate: toDate }) => {
+  const classesAttended = tutionData?.classesAttended;
   let tutorId = null;
   let tutorName = null;
   if (
@@ -21,8 +23,8 @@ const WhatsAppSender = (tutionData, fromDate, toDate) => {
     tutorId = id || null;
     tutorName = name || null;
   }
-  const totalFees = tutionData.finalAmountToParent;
-  const totalDurationOfSessionTaken = tutionData.totalDurationOfSessionTaken;
+  const totalFees = tutionData?.finalAmountToParent;
+  const totalDurationOfSessionTaken = tutionData?.totalDurationOfSessionTaken;
   const toNewDate = calculateDueDate(toDate);
   let resultToWhatsapp = "";
   resultToWhatsapp += `SMARTPOINT E-PAY\nClass hour updates\n(${formatDateToDDMMYYYY(fromDate)
@@ -40,7 +42,6 @@ const WhatsAppSender = (tutionData, fromDate, toDate) => {
   resultToWhatsapp += `\nTotal Fees: ${totalFees}/-\nAccount No: 39891065373\nIFSC CODE: SBIN0009485`;
   resultToWhatsapp += `\nAmount payable : ${totalFees}/-\nPhonePe: +91 8848083747`;
   resultToWhatsapp += `\nPayment due date: ${toNewDate}\n\nNote: Please confirm the payment by sharing a screenshot`;
-
   const [buttonState, setButtonState] = useState('');
   const [status, setStatus] = useState("");
   const [lastSentTime, setLastSentTime] = useState(null);
@@ -48,6 +49,8 @@ const WhatsAppSender = (tutionData, fromDate, toDate) => {
   const hasSentMessage = useRef(false);
   let [messageSend, setMessageSend] = useState(false);
   const prevResultToWhatsapp = useRef(resultToWhatsapp); // Track previous value of resultToWhatsapp
+
+
   const sendMessage = () => {
     if (lastSentTime !== null) {
       // Check if sending another message exceeds the rate limit
@@ -139,8 +142,8 @@ const WhatsAppSender = (tutionData, fromDate, toDate) => {
   }, [resultToWhatsapp]);
 
   useEffect(() => {
-      if (!tutionData?.tutionData) return;
-    if (!messageSend) return; 
+    if (!tutionData?.tutionData) return;
+    if (!messageSend) return;
     const {
       totalDurationOfSessionTaken,
       parentPhoneNumber,
@@ -167,11 +170,11 @@ const WhatsAppSender = (tutionData, fromDate, toDate) => {
       finalAmountToParent
     };
     axios.post(`${baseURI}/api/tution-payments`, payload)
-    .then(()=>{
-      setMessageSend(false);
-    })
-    .catch(err=>console.error(err))
-  }, [messageSend,tutionData]);
+      .then(() => {
+        setMessageSend(false);
+      })
+      .catch(err => console.error(err))
+  }, [messageSend, tutionData]);
   return (
     <div className="whatsapp-sender-container">
       <Grid
