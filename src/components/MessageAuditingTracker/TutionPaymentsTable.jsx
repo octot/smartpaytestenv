@@ -47,7 +47,7 @@ const TutionPaymentsTable = () => {
         setCurrentPage(1);
     }, [search, sortConfig]);
 
-    
+
     // 🔍 Search filter
     const searchText = search?.toLowerCase() ?? "";
     const filteredPayments = payments.filter((p) => {
@@ -78,16 +78,17 @@ const TutionPaymentsTable = () => {
     const columns = [
         { header: "Tution ID & Tution Name", key: "tutionIdAndTutionName" },
         { header: "Session Duration (hrs)", key: "totalDurationOfSessionTaken" },
-        { header: "Tutor Phone Number", key: "tutorPhoneNumber" },
-        { header: "Payment / Hr (Parent)", key: "paymentToParentPerHr" },
-        { header: "Payment / Hr (Tutor)", key: "paymentToTutorPerHr" },
+        { header: "Final Amount to Parent", key: "finalAmountToParent" },
         { header: "Amount to Tutor (Before Reg Fee)", key: "toTutorBeforeRegistration" },
         { header: "Registration Fee", key: "registrationFee" },
         { header: "Amount to Tutor (After Reg Fee)", key: "toTutorAfterRegistrationFee" },
-        { header: "Final Amount to Parent", key: "finalAmountToParent" },
+        { header: "Payment / Hr (Parent)", key: "paymentToParentPerHr" },
+        { header: "Payment / Hr (Tutor)", key: "paymentToTutorPerHr" },
         { header: "Profit", key: "profit" },
+        { header: "Tutor Phone Number", key: "tutorPhoneNumber" },
         { header: "Created At", key: "createdAt" },
     ];
+
 
     // -------CheckBox Logic--------
     const isAllSelected =
@@ -196,33 +197,34 @@ const TutionPaymentsTable = () => {
                                     />
                                 </th>
                                 <th onClick={() => handleSort("tutionIdAndTutionName")}>
-                                    Tution{getSortIcon(sortConfig, "tutionIdAndTutionName")}
+                                    Tution ID & Tution Name{getSortIcon(sortConfig, "tutionIdAndTutionName")}
                                 </th>
                                 <th onClick={() => handleSort("totalDurationOfSessionTaken")}>
-                                    Total Hours{getSortIcon(sortConfig, "totalDurationOfSessionTaken")}
+                                    Session Duration (hrs){getSortIcon(sortConfig, "totalDurationOfSessionTaken")}
                                 </th>
                                 <th onClick={() => handleSort("finalAmountToParent")}>
-                                    Parent Amount{getSortIcon(sortConfig, "finalAmountToParent")}
-                                </th>
-                                <th>Tutor Phone</th>
-                                <th onClick={() => handleSort("paymentToTutorPerHr")}>
-                                    Tutor / Hr{getSortIcon(sortConfig, "paymentToTutorPerHr")}
-                                </th>
-                                <th onClick={() => handleSort("paymentToParentPerHr")}>
-                                    Parent / Hr{getSortIcon(sortConfig, "paymentToParentPerHr")}
+                                    Final Amount to Parent{getSortIcon(sortConfig, "finalAmountToParent")}
                                 </th>
                                 <th onClick={() => handleSort("toTutorBeforeRegistration")}>
-                                    Tutor Before Reg{getSortIcon(sortConfig, "toTutorBeforeRegistration")}
+                                    Amount to Tutor (Before Reg Fee){getSortIcon(sortConfig, "toTutorBeforeRegistration")}
                                 </th>
                                 <th onClick={() => handleSort("registrationFee")}>
-                                    Reg Fee{getSortIcon(sortConfig, "registrationFee")}
+                                    Registration Fee{getSortIcon(sortConfig, "registrationFee")}
                                 </th>
                                 <th onClick={() => handleSort("toTutorAfterRegistrationFee")}>
-                                    Tutor After Reg{getSortIcon(sortConfig, "toTutorAfterRegistrationFee")}
+                                    Amount to Tutor (After Reg Fee){getSortIcon(sortConfig, "toTutorAfterRegistrationFee")}
+                                </th>
+
+                                <th onClick={() => handleSort("paymentToParentPerHr")}>
+                                    Payment / Hr (Parent){getSortIcon(sortConfig, "paymentToParentPerHr")}
+                                </th>
+                                <th onClick={() => handleSort("paymentToTutorPerHr")}>
+                                    Payment / Hr (Tutor){getSortIcon(sortConfig, "paymentToTutorPerHr")}
                                 </th>
                                 <th onClick={() => handleSort("profit")}>
                                     Profit{getSortIcon(sortConfig, "profit")}
                                 </th>
+                                <th>Tutor Phone Number</th>
                                 <th onClick={() => handleSort("createdAt")}>
                                     Created At{getSortIcon(sortConfig, "createdAt")}
                                 </th>
@@ -242,13 +244,13 @@ const TutionPaymentsTable = () => {
                                     <td>{p.tutionIdAndTutionName}</td>
                                     <td>{p.totalDurationOfSessionTaken}</td>
                                     <td>₹{p.finalAmountToParent}</td>
-                                    <td>{p.tutorPhoneNumber}</td>
-                                    <td>₹{p.paymentToTutorPerHr}</td>
-                                    <td>₹{p.paymentToParentPerHr}</td>
                                     <td>₹{p.toTutorBeforeRegistration}</td>
                                     <td>₹{p.registrationFee}</td>
                                     <td>₹{p.toTutorAfterRegistrationFee}</td>
+                                    <td>₹{p.paymentToParentPerHr}</td>
+                                    <td>₹{p.paymentToTutorPerHr}</td>
                                     <td>₹{p.profit}</td>
+                                    <td>{p.tutorPhoneNumber}</td>
                                     <td>{new Date(p.createdAt).toLocaleString()}</td>
                                 </tr>
                             ))}
