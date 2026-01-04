@@ -6,9 +6,9 @@ export function transformData(secondFilteredData) {
       submitTime: item[1],
       paymentToParentPerHr: item[11],
       paymentToTutorPerHr: item[12],
-      parentPhoneNumber: item[8],
+      tutorPhoneNumber: item[10],
     }));
-    console.log("outputOfTransformData:", outputOfTransformData);
+    
     return outputOfTransformData;
   } catch (error) {
     console.error("Error in transformData:", error);
@@ -84,7 +84,7 @@ export function sortAndRemoveDuplicates(
       }
     }
     const combinedRecords = combineData(uniqueData, tutorTotalDuration);
-    console.log("combined Records" + combinedRecords)
+    
     return combinedRecords;
   } catch (error) {
     console.error("Error in sortAndRemoveDuplicates:", error);
@@ -96,9 +96,10 @@ export function sortAndRemoveDuplicates(
 export function combineData(uniqueData, tutorTotalDuration) {
   try {
     const combinedData = [];
+    
     uniqueData.forEach((record) => {
       const tutorID = record.tutorID;
-      console.log("tutorID ", tutorID)
+      
       console.table("tutorTotalDuration", tutorTotalDuration);
 
       const tutorDurationObject = tutorTotalDuration.find(obj => {
@@ -131,7 +132,7 @@ export function combineData(uniqueData, tutorTotalDuration) {
             classesAttended,
             totalDurationOfSessionTaken: totalDuration,
             finalAmountToParent,
-            parentPhoneNumber: record.parentPhoneNumber,
+            tutorPhoneNumber: record.tutorPhoneNumber,
             paymentToTutorPerHr,
             paymentToParentPerHr,
             toTutorBeforeRegistration,
@@ -143,7 +144,7 @@ export function combineData(uniqueData, tutorTotalDuration) {
         });
       }
     });
-    console.log("combinedDatacombineData:", combineData);
+    
     return combinedData;
   } catch (error) {
     console.error("Error in combineData:", error);

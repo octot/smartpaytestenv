@@ -1,13 +1,13 @@
 import React from "react";
 import SessionRow from "./SessionRow";
 import WhatsAppSender from "./WhatsappSender"
-import {formatDate,formatDateToDDMMYYYY,calculateDueDate} from "../utils/HelperFunctions"
+import { formatDate, formatDateToDDMMYYYY, calculateDueDate } from "../utils/HelperFunctions"
 import './TutionBox.css'
 
 
 const TutionBox = ({ tutionData, fromDate, toDate, index }) => {
-     console.log("tutionData",tutionData)
-     
+
+
     const classesAttended = tutionData.classesAttended;
     if (!classesAttended?.length) return;
     const tutorName =
@@ -17,12 +17,8 @@ const TutionBox = ({ tutionData, fromDate, toDate, index }) => {
     const totalFees = tutionData.finalAmountToParent;
     const totalDurationOfSessionTaken = tutionData.totalDurationOfSessionTaken;
     const toNewDate = calculateDueDate(toDate);
-    const formatedFromDate=formatDate(formatDateToDDMMYYYY(fromDate));
-    const formatedToDate=formatDate(formatDateToDDMMYYYY(toDate));
-    console.log("formatedFromDate",formatedFromDate)
-    console.log("formatedToDate",formatedToDate)
-
-    console.log("TutionBoxfromDate",fromDate)
+    const formatedFromDate = formatDate(formatDateToDDMMYYYY(fromDate));
+    const formatedToDate = formatDate(formatDateToDDMMYYYY(toDate));
     return (
         <div key={index} className="tution-box">
             <div className="company-header">

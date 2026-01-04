@@ -30,7 +30,7 @@ const ExcelReader = () => {
   // const [fromDate, setFromDate] = useState(new Date(2025, 10, 1, 10, 0, 0));
   // const [toDate, setToDate] = useState(new Date(2025, 11, 1, 10, 0, 0));
   // const [payroll, setPayroll] = useState(new Date(2025, 11, 1, 10, 0, 0));
-  // console.log("fromDate  "+fromDate);
+  // 
     const [fromDate, setFromDate] = useState("");
   const [toDate, setToDate] = useState("");
   const [payroll, setPayroll] = useState("");
@@ -124,6 +124,8 @@ const ExcelReader = () => {
     "case2"
   );
   const recordsFromPayRollAndFilteredTimeSheetEntryExcel = [...filteredTimeSheetEntryExcelData, ...payRollFilteredTimeSheetEntryExcelData];
+  
+  
   const missedRecordsArray = missedStudentRecords(recordsFromPayRollAndFilteredTimeSheetEntryExcel, fromDate);
 
   const payRollFilteredData = [...new Set(missedRecordsArray)];

@@ -5,7 +5,7 @@ import './TutionDetailsWrapper.css';
 import ViewMessageTracker from "./MessageAuditingTracker/ViewMessageTracker"
 const TutionDetailsWrapper = ({ combinedAndSortedData, fromDate, toDate }) => {
 
-    console.log("TutionDetailsWrapper ",fromDate)
+    
     const totalTutors = combinedAndSortedData.length;
     const totalSessions = combinedAndSortedData.reduce((acc, item) => {
         const tutorKey = Object.keys(item)[0];
@@ -13,7 +13,7 @@ const TutionDetailsWrapper = ({ combinedAndSortedData, fromDate, toDate }) => {
         return acc + (tutionData.classesAttended?.length || 0);
     }, 0);
     const [searchTerm, setSearchTerm] = useState('');
-    console.log("combinedAndSortedData", combinedAndSortedData)
+    
     const filteredCombinedAndSortedData = combinedAndSortedData.filter(item => {
         const key = Object.keys(item)[0]; // Get the only key of this object
         return key.toLowerCase().includes(searchTerm.toLowerCase());

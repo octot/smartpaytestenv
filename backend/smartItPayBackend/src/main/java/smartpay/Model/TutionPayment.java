@@ -24,7 +24,7 @@ public class TutionPayment {
 
     private Double finalAmountToParent;
 
-    private String parentPhoneNumber;
+    private String tutorPhoneNumber;
 
     private Double paymentToTutorPerHr;
 

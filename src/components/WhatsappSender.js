@@ -142,11 +142,18 @@ const WhatsAppSender = ({ tutionData,
   }, [resultToWhatsapp]);
 
   useEffect(() => {
-    if (!tutionData?.tutionData) return;
+    if (!tutionData) {
+
+
+      
+      return;
+    }
     if (!messageSend) return;
+
+    
     const {
       totalDurationOfSessionTaken,
-      parentPhoneNumber,
+      tutorPhoneNumber,
       paymentToTutorPerHr,
       paymentToParentPerHr,
       registrationFee,
@@ -155,11 +162,11 @@ const WhatsAppSender = ({ tutionData,
       toTutorBeforeRegistration,
       tutionIdAndTutionName,
       finalAmountToParent
-    } = tutionData?.tutionData || {};
+    } = tutionData || {};
 
     const payload = {
       totalDurationOfSessionTaken,
-      parentPhoneNumber,
+      tutorPhoneNumber,
       paymentToTutorPerHr: Number(paymentToTutorPerHr),
       paymentToParentPerHr: Number(paymentToParentPerHr),
       registrationFee,
@@ -169,6 +176,7 @@ const WhatsAppSender = ({ tutionData,
       tutionIdAndTutionName,
       finalAmountToParent
     };
+    
     axios.post(`${baseURI}/api/tution-payments`, payload)
       .then(() => {
         setMessageSend(false);

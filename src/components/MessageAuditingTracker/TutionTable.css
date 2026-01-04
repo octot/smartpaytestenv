@@ -12,6 +12,33 @@
     /* 🔥 REQUIRED */
 }
 
+/*====== CheckBoxForTutionRecords============*/
+.table-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+/* Buttons */
+.delete-btn {
+    background: #c62828;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.delete-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+
 
 /* ====== Search Box ====== */
 .search-input {
